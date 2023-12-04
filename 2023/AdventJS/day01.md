@@ -22,3 +22,10 @@ const firstRepeatedId3 = findFirstRepeated(giftIds3)
 console.log(firstRepeatedId3) // 5
 
 Watch out! The elves say this is a Google technical test.
+
+Template:
+function findFirstRepeated(gifts) {
+  // Code here
+
+  return -1;
+}
