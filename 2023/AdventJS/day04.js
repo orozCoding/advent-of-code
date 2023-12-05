@@ -1,7 +1,8 @@
 function decode(message) {
   if (!message.includes("(")) return message;
 
-  const decodeMostCenteredCode = (msg) => {
+  let msg = message;
+  while (msg.includes("(")) {
     const lastOpenI = msg.lastIndexOf("(");
     const nextClosingI = msg.substring(lastOpenI).indexOf(")") + lastOpenI;
 
@@ -10,12 +11,7 @@ function decode(message) {
     const msgArray = msg.split("");
     msgArray.splice(lastOpenI, substring.length + 2, subReversed);
 
-    return msgArray.join("");
-  };
-
-  let msg = message;
-  while (msg.includes("(")) {
-    msg = decodeMostCenteredCode(msg);
+    msg = msgArray.join("");
   }
   return msg;
 }
