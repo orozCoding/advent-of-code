@@ -8,12 +8,7 @@ function decode(message) {
 
     const substring = msg.substring(lastOpenI + 1, nextClosingI);
     const subReversed = substring.split("").reverse().join("");
-    const msgArray = msg.split("");
-    msgArray.splice(lastOpenI, substring.length + 2, subReversed);
-
-    msg = msgArray.join("");
+    msg = msg.replace("(" + substring + ")", subReversed);
   }
   return msg;
 }
-
-console.log(decode("123(654)789"));
