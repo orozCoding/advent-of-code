@@ -3,7 +3,6 @@ function cyberReindeer(road, time) {
   let currentRoad = road;
   const result = [road];
   let charBeforeSanta = ".";
-  let santaPos = 0;
   let nextPosition = 1;
   for (let i = 1; i < time; i++) {
     if (i == 5) {
@@ -11,8 +10,7 @@ function cyberReindeer(road, time) {
     }
     if (currentRoad[nextPosition] != "|") {
       currentRoad = currentRoad.split("");
-      currentRoad.splice(santaPos, 1, charBeforeSanta);
-      santaPos += 1;
+      currentRoad.splice(nextPosition - 1, 1, charBeforeSanta);
       charBeforeSanta = currentRoad[nextPosition];
       currentRoad.splice(nextPosition, 1, "S");
       currentRoad = currentRoad.join("");
